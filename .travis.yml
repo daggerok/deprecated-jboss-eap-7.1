@@ -3,8 +3,10 @@ sudo: required
 services:
 - docker
 
-#env:
+env:
 #  - DOCKER_COMPOSE_VERSION=1.4.2
+  - DOCKER_USERNAME=daggerok
+  - secure: "i8meTHGjTbBLuZFsxs107fWYWTydH1O2AEdS/BmNdsXgaBJTFXfkTjDjVpj0hq+7f84AezoSi4xUj5YA5GzgaZMKQimt3EYSLduBYRySASxb1xiLCfDB5ZJ57D2w+zaWQdjoqlO/LSy3ny42VPJIkaaOdJ5Bsb6p+sZain567YGoebqnwS7NAD3H6Qo3ZuS4N9gmB8wdUbpLVJP45xgHn9ahrPvsVYzs8G+mp82rk6RV/VJCahqBHK3UsZ1ACKYr50IQBDnZGjanbgiWbU9hExIo43J14W+L+1/IZg9Q88oK0yz9UhXCCV8CFJXFOsfKgAvnfHbnmC62QobRPuQ7s1yPyBUd9GH8AN+iBwbp5KaQ4JTZWX55GHyMZKB6APcH407k8b5xqm91X5Veus6ADuuu35JOUIoPEECyK5UzzZMXzFH5ZuVOvfezvOGDK/1vI5ksufBzSdYlev8ON+VJeS2bxoRVdVrsyIoce9UBhQqtXN3N7zl3/YFMG990OMO2O92OTCwZ3srVPZMj8Z1rGVcupK3yTtOgyvfJ+8Gf/4RYTLOEoUa+yK3EcLV/bGK+jPwoZaXFTsWQ++53zCA4aaaxxZJI5pLvYHD+8WrYVtT9AGv3tG/KSdapz8oHsOUkukJrEoI3lQMLb93212cK+FF8rc4WWeVmB+S3PQsFMN0="
 
 addons:
   apt:
@@ -23,10 +25,7 @@ before_install:
 #  - chmod +x docker-compose
 #  - sudo mv docker-compose /usr/local/bin
 
-secure: "EcLkRKeRGkIgpWo5kfGx99hoJsyxvBswDlEDHUIFrQmDOYvldOC5mERgyx8v/QamkS+tIiF3w1lK/UJ2N8FWg6sEDkj6FIOhdNEgxvP6u3AoFP+lSOZ7AY9TfyOBVgj0mUTPC9zwCluz3WcunNapHl1Cpi3MBM9vZ1J36moTCb/3y9zJw0j+cHfxJJy0BJ+P2yiBn6Qg8nwjtifwKbYmgQ5OKzq/vvGx/1ebZRu93SQd5566hmcRDbH67tWqJELTYzM+hkz8q6TdtDaiHE7icKABZuQY2y5fs4pQaf5kqbCgSo+XSdSEN7RXcSjGWRD1RU2Uf0PxK9U1stQZR6NFW+4XW1nHSaTnxz8QePCDhP4uKfVjspK/bqRcVZA5XUFFlqGUQqyfY/4oiTqhX3GnP9rJTILqG3gWz+6MZrIKHVSGvWVZMVFzjvRw333wo0SRjMTiu3UkVD0rM7Vcl6oTXu/LlwHlrZDIZ1L/uX+Gr2PdsSLU+96/IRfBJdSGQdVtXeQCAtlcTtN4kVz+GlTL/o1WTwuUwe1n5ayi+3fEwkYHgCBPl5CDzbrAGyKuhVST1+wDDOizSk94mfPVm26MGKsCBQB3ZqgOa/w2BTqi/lkpYhaP9fAHs0lrXAuXsNo42O4Q53aak93P5iNIHAuKPamNdsqzCEHwyaxuhGvZhWs="
-
 script:
-- travis env set DOCKER_USERNAME daggerok
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - docker build -t ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 .
 - >
