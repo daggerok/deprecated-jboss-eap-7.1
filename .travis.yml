@@ -31,9 +31,9 @@ script:
 - docker build -t ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 .
 - >
   if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:latest
-    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
-#    docker push ${DOCKER_USERNAME}/jboss-eap-7.1:latest
-#    docker push ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
+    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1:latest
+    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1:alpine
+#    docker push ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1:latest
+#    docker push ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1:alpine
     docker push ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1
   fi
