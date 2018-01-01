@@ -1,11 +1,8 @@
 # git clone https://github.com/daggerok/dockerhub-jboss-eap-7.1
 # docker build -t daggerok/jboss-eap-7.1 -f dockerhub-jboss-eap-7.1/Dockerfile .
-# docker tag daggerok/jboss-eap-7.1 daggerok/jboss-eap-7.1-alpine
 # docker tag daggerok/jboss-eap-7.1 daggerok/jboss-eap-7.1:alpine
 # docker tag daggerok/jboss-eap-7.1 daggerok/jboss-eap-7.1:latest
-# docker push daggerok/jboss-eap-7.1-alpine
-# docker push daggerok/jboss-eap-7.1:alpine
-# docker push daggerok/jboss-eap-7.1:latest
+# docker push daggerok/jboss-eap-7.1
 
 FROM openjdk:8u151-jdk-alpine
 MAINTAINER Maksim Kostromin https://github.com/daggerok/docker
