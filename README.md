@@ -27,6 +27,6 @@ password: Admin.123
 
 **Exposed ports**:
 
-8080 - deployed apps
-9990 - console
-8443
+- 8080 - deployed apps
+- 9990 - console
+- 8443 - https
