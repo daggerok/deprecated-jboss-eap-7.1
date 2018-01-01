@@ -12,12 +12,12 @@ env:
   - DOCKER_COMPOSE_VERSION=1.18.0
 
 before_install:
-  - docker-compose -v
+  # update docker
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt update
   - sudo apt -y install docker-ce
-  - docker-compose -v
+  # update docker-compose
   - sudo rm -rf /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
@@ -25,11 +25,11 @@ before_install:
   - docker-compose -v
 
 script:
-- docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 - docker build -t ${DOCKER_USERNAME}/jboss-eap-7.1 .
 - >
   if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker tag ${DOCKER_USERNAME}/jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:latest
     docker tag ${DOCKER_USERNAME}/jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
+    docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
     docker push ${DOCKER_USERNAME}/jboss-eap-7.1
   fi
