@@ -16,12 +16,12 @@ ARG JBOSS_FILE_ARG="jboss-eap-7.1.0.zip"
 ARG JBOSS_ADMIN_USER_ARG="admin"
 ARG JBOSS_ADMIN_PASSWORD_ARG="Admin.123"
 
-ENV DROPBOX_HASH=${DROPBOX_HASH_ARG}
-ENV JBOSS_FILE=${JBOSS_FILE_ARG}
-ENV JBOSS_URL="https://www.dropbox.com/s/${DROPBOX_HASH}/${JBOSS_FILE}"
-ENV JBOSS_ADMIN_PASSWORD=${JBOSS_ADMIN_PASSWORD_ARG}
-ENV JBOSS_ADMIN_USER=${JBOSS_ADMIN_USER_ARG}
-ENV JBOSS_USER_HOME="/home/${JBOSS_USER}"
+ENV DROPBOX_HASH=${DROPBOX_HASH_ARG} \
+    JBOSS_FILE=${JBOSS_FILE_ARG}
+ENV JBOSS_URL="https://www.dropbox.com/s/${DROPBOX_HASH}/${JBOSS_FILE}" \
+    JBOSS_ADMIN_PASSWORD=${JBOSS_ADMIN_PASSWORD_ARG} \
+    JBOSS_ADMIN_USER=${JBOSS_ADMIN_USER_ARG} \
+    JBOSS_USER_HOME="/home/${JBOSS_USER}"
 ENV JBOSS_HOME="${JBOSS_USER_HOME}/${JBOSS_USER}"
 
 RUN apk --no-cache --update add busybox-suid bash wget ca-certificates unzip sudo openssh-client shadow \
@@ -36,7 +36,7 @@ USER ${JBOSS_USER}
 WORKDIR ${JBOSS_USER_HOME}
 
 CMD /bin/bash
-EXPOSE 8080 9990
+EXPOSE 8080 9990 8443
 ENTRYPOINT /bin/bash ${JBOSS_HOME}/bin/standalone.sh
 
 RUN wget ${JBOSS_URL} -O ${JBOSS_USER_HOME}/${JBOSS_FILE} \
@@ -53,3 +53,4 @@ RUN wget ${JBOSS_URL} -O ${JBOSS_USER_HOME}/${JBOSS_FILE} \
 #
 ## deploy apps
 #COPY ./path/to/*.war ./path/to/another/*.war ${JBOSS_HOME}/standalone/deployments/
+
