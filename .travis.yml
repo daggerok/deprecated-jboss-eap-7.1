@@ -6,23 +6,25 @@ services:
 
 env:
   global:
-    - TERM=dumb
-#    - DOCKER_COMPOSE_VERSION=1.4.2
-    - DOCKER_USERNAME=daggerok
-    - secure: "i8meTHGjTbBLuZFsxs107fWYWTydH1O2AEdS/BmNdsXgaBJTFXfkTjDjVpj0hq+7f84AezoSi4xUj5YA5GzgaZMKQimt3EYSLduBYRySASxb1xiLCfDB5ZJ57D2w+zaWQdjoqlO/LSy3ny42VPJIkaaOdJ5Bsb6p+sZain567YGoebqnwS7NAD3H6Qo3ZuS4N9gmB8wdUbpLVJP45xgHn9ahrPvsVYzs8G+mp82rk6RV/VJCahqBHK3UsZ1ACKYr50IQBDnZGjanbgiWbU9hExIo43J14W+L+1/IZg9Q88oK0yz9UhXCCV8CFJXFOsfKgAvnfHbnmC62QobRPuQ7s1yPyBUd9GH8AN+iBwbp5KaQ4JTZWX55GHyMZKB6APcH407k8b5xqm91X5Veus6ADuuu35JOUIoPEECyK5UzzZMXzFH5ZuVOvfezvOGDK/1vI5ksufBzSdYlev8ON+VJeS2bxoRVdVrsyIoce9UBhQqtXN3N7zl3/YFMG990OMO2O92OTCwZ3srVPZMj8Z1rGVcupK3yTtOgyvfJ+8Gf/4RYTLOEoUa+yK3EcLV/bGK+jPwoZaXFTsWQ++53zCA4aaaxxZJI5pLvYHD+8WrYVtT9AGv3tG/KSdapz8oHsOUkukJrEoI3lQMLb93212cK+FF8rc4WWeVmB+S3PQsFMN0="
+  - TERM=dumb
+  #- DOCKER_COMPOSE_VERSION=1.4.2
+  - DOCKER_USERNAME=daggerok
+  - secure: "i8meTHGjTbBLuZFsxs107fWYWTydH1O2AEdS/BmNdsXgaBJTFXfkTjDjVpj0hq+7f84AezoSi4xUj5YA5GzgaZMKQimt3EYSLduBYRySASxb1xiLCfDB5ZJ57D2w+zaWQdjoqlO/LSy3ny42VPJIkaaOdJ5Bsb6p+sZain567YGoebqnwS7NAD3H6Qo3ZuS4N9gmB8wdUbpLVJP45xgHn9ahrPvsVYzs8G+mp82rk6RV/VJCahqBHK3UsZ1ACKYr50IQBDnZGjanbgiWbU9hExIo43J14W+L+1/IZg9Q88oK0yz9UhXCCV8CFJXFOsfKgAvnfHbnmC62QobRPuQ7s1yPyBUd9GH8AN+iBwbp5KaQ4JTZWX55GHyMZKB6APcH407k8b5xqm91X5Veus6ADuuu35JOUIoPEECyK5UzzZMXzFH5ZuVOvfezvOGDK/1vI5ksufBzSdYlev8ON+VJeS2bxoRVdVrsyIoce9UBhQqtXN3N7zl3/YFMG990OMO2O92OTCwZ3srVPZMj8Z1rGVcupK3yTtOgyvfJ+8Gf/4RYTLOEoUa+yK3EcLV/bGK+jPwoZaXFTsWQ++53zCA4aaaxxZJI5pLvYHD+8WrYVtT9AGv3tG/KSdapz8oHsOUkukJrEoI3lQMLb93212cK+FF8rc4WWeVmB+S3PQsFMN0="
+  - secure: "S3seATFRm9+68jxUiiU3XNIrpucbfwyutZUazlRpdGuM4RB+KTaRA5s/fx71zW4ZlqmD7JjR1WamPHJuX8yeMmhYoCC5VYAVqqcz7iTqzBrtxa5O7vcHZWXE9O+R2J7oxJj+ISnh44h9pnr2CNCxDf82qJiCUTkDy5QVdTLa+2E+ea2wTQlTjO9eK399hGLf6igpwoqP6KHblwtWJAFz1DGQKkd6CdFE2PKFYKAIsXyVNWtZOgTivLZyd+Vso+0nQZ4gEa0Fyj8nys1WuOuZ1r5b/4xw7MBbkI6Fn6c2losKxsYDG4AX5WYx5RjtWQOCbNPXER4hEvRbWZWUCcLTeCP6nXtqvHVmq2wNLaZTPpU//+aNCEToLAksESgg66nU8LEkflSe3Nq9CDd2Q91XYjwUNOTq/FvpperBz9+MUjSNrC0jUTv1BYqoU8fdDCu4+XGXMqhBqvIZnjfwCqkjBAbwL5XXn9tRzWZsQf2KffE4aaslpe8978NvwamiiXo9Xe/SQHsjAvCu47eofEZdWpHEGTFzGowLkXQ905CSwIdzAhymEdW4mU9we3TsJljeLYg0B86T1kBuGxkTvV9DDPaF7FET/eoRqXm5M0Jcsho37xf3iDQd50qTi3FD4Tmp5WINNAN2W8njMA6YI4JKPiaOCiPiNv/4gkTF40gRvQY="
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt update
   - sudo apt -y install docker-ce
-#  - sudo rm -rf /usr/local/bin/docker-compose
-#  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#  - chmod +x docker-compose
-#  - sudo mv docker-compose /usr/local/bin
+  #- sudo rm -rf /usr/local/bin/docker-compose
+  #- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  #- chmod +x docker-compose
+  #- sudo mv docker-compose /usr/local/bin
 
 script:
-- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- echo "f8ck.... ${FUCKING_TEST}"
+- docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 - docker build -t ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 .
 - >
   if [ "$TRAVIS_BRANCH" == "master" ]; then
