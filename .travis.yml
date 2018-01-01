@@ -28,12 +28,12 @@ secure: "EcLkRKeRGkIgpWo5kfGx99hoJsyxvBswDlEDHUIFrQmDOYvldOC5mERgyx8v/QamkS+tIiF
 script:
 - travis env set DOCKER_USERNAME daggerok
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-- docker build -t daggerok/jboss-eap-7.1 .
+- docker build -t ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 .
 - >
   if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker tag ${DOCKER_USERNAME}/jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:latest
-    docker tag ${DOCKER_USERNAME}/jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
+    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:latest
+    docker tag ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1 ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
 #    docker push ${DOCKER_USERNAME}/jboss-eap-7.1:latest
 #    docker push ${DOCKER_USERNAME}/jboss-eap-7.1:alpine
-    docker push ${DOCKER_USERNAME}/jboss-eap-7.1
+    docker push ${DOCKER_USERNAME}/dockerhub-jboss-eap-7.1
   fi
