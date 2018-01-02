@@ -3,14 +3,20 @@ JBOSS EAP 7.1 docker image (Linux Alpine, OpenJDK 8u151)
 
 note: In furute, current repository might be renamed to `daggerok/jboss-eap-7.1`. Sorry for inconviniance
 
-
 **Exposed ports**:
 
 - 8080 - deployed apps
 - 9990 - console
 - 8443 - https
 
-**Usage**:
+**Console**:
+
+- url: http://127.0.0.1:9990/console
+- user: admin
+- password: Admin.123
+
+
+### Usage:
 
 ```
 
@@ -18,7 +24,8 @@ FROM daggerok/jboss-eap-7.1
 ADD ./build/libs/*.war ${JBOSS_HOME}/standalone/deployments/
 ```
 
-**Remote debug**:
+
+#### Usage with remote debug:
 
 ```
 
@@ -27,9 +34,3 @@ RUN echo "JAVA_OPTS=\"\$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,su
 EXPOSE 5005
 ADD ./build/libs/*.war ${JBOSS_HOME}/standalone/deployments/
 ```
-
-**Console**:
-
-- url: http://127.0.0.1:9990/console
-- user: admin
-- password: Admin.123
