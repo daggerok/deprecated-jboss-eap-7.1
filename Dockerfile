@@ -1,5 +1,5 @@
-# git clone https://github.com/daggerok/dockerhub-jboss-eap-7.1
-# docker build -t daggerok/jboss-eap-7.1 -f dockerhub-jboss-eap-7.1/Dockerfile .
+# git clone https://github.com/daggerok/jboss-eap-7.1
+# docker build -t daggerok/jboss-eap-7.1 -f jboss-eap-7.1/Dockerfile .
 # docker tag daggerok/jboss-eap-7.1 daggerok/jboss-eap-7.1:alpine
 # docker tag daggerok/jboss-eap-7.1 daggerok/jboss-eap-7.1:latest
 # docker push daggerok/jboss-eap-7.1
