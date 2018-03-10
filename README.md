@@ -1,7 +1,5 @@
-# jboss-eap-7.1 [![Build Status](https://travis-ci.org/daggerok/jboss-eap-7.1.svg?branch=master)](https://travis-ci.org/daggerok/jboss-eap-7.1)
-JBOSS EAP 7.1 docker image (Linux Alpine, OpenJDK 8u151)
-
-note: In furute, current repository might be renamed to `daggerok/jboss-eap-7.1`. Sorry for inconviniance
+# JBOSS EAP 7.1 [![Build Status](https://travis-ci.org/daggerok/jboss-eap-7.1.svg?branch=master)](https://travis-ci.org/daggerok/jboss-eap-7.1)
+Docker hub automation build. Based on (Linux Alpine, OpenJDK 8u151) docker image: `openjdk:8u151-jdk-alpine`
 
 **Exposed ports**:
 
